@@ -227,13 +227,13 @@
                         <h3 style="font-size: 14px; font-weight: 600; margin: 0 0 12px 0;">
                             <i class="fas fa-bolt"></i> Actions Rapides
                         </h3>
-                        <button class="action-btn" style="padding: 10px 14px; font-size: 12px;">
+                        <button onclick="openDashboardModal('invoice')" class="action-btn" style="padding: 10px 14px; font-size: 12px;">
                             <i class="fas fa-file-invoice-dollar"></i> Créer Facture
                         </button>
-                        <button class="action-btn secondary" style="padding: 10px 14px; font-size: 12px;">
+                        <button onclick="openDashboardModal('product')" class="action-btn secondary" style="padding: 10px 14px; font-size: 12px;">
                             <i class="fas fa-box-open"></i> Ajouter Produit
                         </button>
-                        <button class="action-btn secondary" style="padding: 10px 14px; font-size: 12px;">
+                        <button onclick="openDashboardModal('client')" class="action-btn secondary" style="padding: 10px 14px; font-size: 12px;">
                             <i class="fas fa-user-plus"></i> Enregistrer Client
                         </button>
                     </div>
@@ -394,6 +394,9 @@
             </div>
         </main>
     </div>
+
+    <!-- Include Dashboard Modals -->
+    @include('dashboard-modals')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script>

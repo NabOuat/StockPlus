@@ -9,7 +9,7 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -17,13 +17,14 @@
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal-overlay.active {
-    display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
+    pointer-events: auto !important;
     z-index: 9999 !important;
 }
 
@@ -58,6 +59,7 @@
     z-index: 10000;
     visibility: visible;
     opacity: 1;
+    transform: scale(1);
 }
 
 /* Modal Header */
@@ -67,7 +69,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(0, 82, 204, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(0, 82, 204, 0.08) 100%);
+    border-radius: 12px 12px 0 0;
 }
 
 .modal-title {
@@ -251,7 +254,7 @@
 
 /* Create Modal */
 .modal.create-modal .modal-header {
-    background: linear-gradient(135deg, rgba(39, 174, 96, 0.05) 0%, rgba(34, 153, 84, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.08) 0%, rgba(34, 153, 84, 0.08) 100%);
 }
 
 .modal.create-modal .modal-title i {
@@ -260,7 +263,7 @@
 
 /* Edit Modal */
 .modal.edit-modal .modal-header {
-    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(0, 82, 204, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(0, 82, 204, 0.08) 100%);
 }
 
 .modal.edit-modal .modal-title i {
@@ -269,7 +272,7 @@
 
 /* Delete Modal */
 .modal.delete-modal .modal-header {
-    background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(192, 57, 43, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.08) 0%, rgba(192, 57, 43, 0.08) 100%);
 }
 
 .modal.delete-modal .modal-title i {
@@ -312,7 +315,7 @@
 
 /* View Modal */
 .modal.view-modal .modal-header {
-    background: linear-gradient(135deg, rgba(159, 168, 218, 0.05) 0%, rgba(108, 92, 231, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(159, 168, 218, 0.08) 0%, rgba(108, 92, 231, 0.08) 100%);
 }
 
 .modal.view-modal .modal-title i {

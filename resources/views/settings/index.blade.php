@@ -339,83 +339,172 @@
                             <p class="section-description">Gérez les utilisateurs et leurs permissions.</p>
                         </div>
 
-                        <div style="margin-bottom: 16px;">
-                            <button type="button" class="btn btn-primary" onclick="openAddUserModal()">
-                                <i class="fas fa-plus"></i> Ajouter un Utilisateur
+                        <!-- Stats Cards -->
+                        <div class="users-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                            <div class="stat-card" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(0, 102, 255, 0.2); border-radius: 12px; padding: 20px; animation: slideInUp 0.5s ease-out;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                    <div>
+                                        <p style="margin: 0; font-size: 12px; color: #999; text-transform: uppercase; font-weight: 600;">Total Utilisateurs</p>
+                                        <h3 style="margin: 8px 0 0 0; font-size: 28px; font-weight: 700; color: #0066FF;">4</h3>
+                                    </div>
+                                    <i class="fas fa-users" style="font-size: 32px; color: #0066FF; opacity: 0.2;"></i>
+                                </div>
+                            </div>
+
+                            <div class="stat-card" style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.1) 0%, rgba(39, 174, 96, 0.05) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(39, 174, 96, 0.2); border-radius: 12px; padding: 20px; animation: slideInUp 0.5s ease-out 0.1s backwards;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                    <div>
+                                        <p style="margin: 0; font-size: 12px; color: #999; text-transform: uppercase; font-weight: 600;">Utilisateurs Actifs</p>
+                                        <h3 style="margin: 8px 0 0 0; font-size: 28px; font-weight: 700; color: #27AE60;">4</h3>
+                                    </div>
+                                    <i class="fas fa-check-circle" style="font-size: 32px; color: #27AE60; opacity: 0.2;"></i>
+                                </div>
+                            </div>
+
+                            <div class="stat-card" style="background: linear-gradient(135deg, rgba(155, 89, 182, 0.1) 0%, rgba(155, 89, 182, 0.05) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(155, 89, 182, 0.2); border-radius: 12px; padding: 20px; animation: slideInUp 0.5s ease-out 0.2s backwards;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                    <div>
+                                        <p style="margin: 0; font-size: 12px; color: #999; text-transform: uppercase; font-weight: 600;">Rôles Assignés</p>
+                                        <h3 style="margin: 8px 0 0 0; font-size: 28px; font-weight: 700; color: #9B59B6;">3</h3>
+                                    </div>
+                                    <i class="fas fa-shield-alt" style="font-size: 32px; color: #9B59B6; opacity: 0.2;"></i>
+                                </div>
+                            </div>
+
+                            <div class="stat-card" style="background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(243, 156, 18, 0.05) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(243, 156, 18, 0.2); border-radius: 12px; padding: 20px; animation: slideInUp 0.5s ease-out 0.3s backwards;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                    <div>
+                                        <p style="margin: 0; font-size: 12px; color: #999; text-transform: uppercase; font-weight: 600;">Permissions</p>
+                                        <h3 style="margin: 8px 0 0 0; font-size: 28px; font-weight: 700; color: #F39C12;">12</h3>
+                                    </div>
+                                    <i class="fas fa-key" style="font-size: 32px; color: #F39C12; opacity: 0.2;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button type="button" class="btn btn-primary" onclick="openAddUserModal()" style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-user-plus"></i> Ajouter Utilisateur
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="openRolesModal()" style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-shield-alt"></i> Gérer Rôles
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="openPermissionsModal()" style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-key"></i> Gérer Permissions
                             </button>
                         </div>
 
-                        <table class="reports-table" style="width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr>
-                                    <th style="padding: 12px; text-align: left; font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase;">Nom</th>
-                                    <th style="padding: 12px; text-align: left; font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase;">Email</th>
-                                    <th style="padding: 12px; text-align: left; font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase;">Rôle</th>
-                                    <th style="padding: 12px; text-align: left; font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase;">Modules</th>
-                                    <th style="padding: 12px; text-align: left; font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase;">Statut</th>
-                                    <th style="padding: 12px; text-align: left; font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase;">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid #E8EAED;">
-                                    <td style="padding: 12px;">{{ Auth::user()->name ?? 'Admin' }}</td>
-                                    <td style="padding: 12px;">{{ Auth::user()->email ?? 'admin@example.com' }}</td>
-                                    <td style="padding: 12px;"><span style="background: #E3F2FD; color: #0066FF; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Administrateur</span></td>
-                                    <td style="padding: 12px;"><span style="font-size: 12px; color: #0066FF; font-weight: 600;">Tous</span></td>
-                                    <td style="padding: 12px;"><span style="background: #E8F5E9; color: #27AE60; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Actif</span></td>
-                                    <td style="padding: 12px;">
-                                        <button style="background: none; border: none; color: #0066FF; cursor: pointer; font-size: 14px;" title="Voir">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #E8EAED;">
-                                    <td style="padding: 12px;">Caissier 1</td>
-                                    <td style="padding: 12px;">caissier1@example.com</td>
-                                    <td style="padding: 12px;"><span style="background: #FEF3C7; color: #D97706; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Caissier</span></td>
-                                    <td style="padding: 12px;"><span style="font-size: 12px; color: #666;">PDV</span></td>
-                                    <td style="padding: 12px;"><span style="background: #E8F5E9; color: #27AE60; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Actif</span></td>
-                                    <td style="padding: 12px;">
-                                        <button style="background: none; border: none; color: #0066FF; cursor: pointer; font-size: 14px; margin-right: 8px;" title="Éditer" onclick="openEditUserModal()">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button style="background: none; border: none; color: #E74C3C; cursor: pointer; font-size: 14px;" title="Supprimer" onclick="openDeleteUserModal()">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #E8EAED;">
-                                    <td style="padding: 12px;">Gestionnaire Stock</td>
-                                    <td style="padding: 12px;">stock@example.com</td>
-                                    <td style="padding: 12px;"><span style="background: #F3E5F5; color: #9B59B6; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Gestionnaire</span></td>
-                                    <td style="padding: 12px;"><span style="font-size: 12px; color: #666;">Gestion des Stocks</span></td>
-                                    <td style="padding: 12px;"><span style="background: #E8F5E9; color: #27AE60; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Actif</span></td>
-                                    <td style="padding: 12px;">
-                                        <button style="background: none; border: none; color: #0066FF; cursor: pointer; font-size: 14px; margin-right: 8px;" title="Éditer" onclick="openEditUserModal()">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button style="background: none; border: none; color: #E74C3C; cursor: pointer; font-size: 14px;" title="Supprimer" onclick="openDeleteUserModal()">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #E8EAED;">
-                                    <td style="padding: 12px;">Caissier + Stock</td>
-                                    <td style="padding: 12px;">caissier.stock@example.com</td>
-                                    <td style="padding: 12px;"><span style="background: #E0F2F1; color: #00897B; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Multi-Rôle</span></td>
-                                    <td style="padding: 12px;"><span style="font-size: 12px; color: #666;">PDV + Stocks</span></td>
-                                    <td style="padding: 12px;"><span style="background: #E8F5E9; color: #27AE60; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Actif</span></td>
-                                    <td style="padding: 12px;">
-                                        <button style="background: none; border: none; color: #0066FF; cursor: pointer; font-size: 14px; margin-right: 8px;" title="Éditer" onclick="openEditUserModal()">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button style="background: none; border: none; color: #E74C3C; cursor: pointer; font-size: 14px;" title="Supprimer" onclick="openDeleteUserModal()">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <!-- Users Grid -->
+                        <div class="users-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+                            <!-- User Card 1 -->
+                            <div class="user-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 244, 255, 0.95) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(232, 234, 237, 0.5); border-radius: 12px; padding: 20px; box-shadow: 0 8px 32px rgba(0, 102, 255, 0.08); transition: all 0.3s ease; animation: slideInUp 0.5s ease-out;">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #0066FF, #0052CC); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">{{ substr(Auth::user()->name ?? 'A', 0, 1) }}</div>
+                                    <div style="flex: 1;">
+                                        <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: #1A1A1A;">{{ Auth::user()->name ?? 'Admin' }}</h4>
+                                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">{{ Auth::user()->email ?? 'admin@example.com' }}</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                                    <span style="background: #E3F2FD; color: #0066FF; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Administrateur</span>
+                                    <span style="background: #E8F5E9; color: #27AE60; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Actif</span>
+                                </div>
+                                <p style="margin: 0 0 12px 0; font-size: 12px; color: #666;">
+                                    <i class="fas fa-lock-open" style="color: #0066FF; margin-right: 6px;"></i>
+                                    Tous les modules
+                                </p>
+                                <div style="display: flex; gap: 8px; padding-top: 12px; border-top: 1px solid #E8EAED;">
+                                    <button data-name="{{ Auth::user()->name ?? 'Admin' }}" data-email="{{ Auth::user()->email ?? 'admin@example.com' }}" data-role="Administrateur" data-modules="Tous les modules" onclick="openViewUserModal(this.dataset.name, this.dataset.email, this.dataset.role, this.dataset.modules)" style="flex: 1; background: none; border: 1px solid #0066FF; color: #0066FF; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#0066FF'; this.style.color='white';" onmouseout="this.style.background='none'; this.style.color='#0066FF';">
+                                        <i class="fas fa-eye"></i> Voir
+                                    </button>
+                                    <button data-name="{{ Auth::user()->name ?? 'Admin' }}" onclick="openDeleteUserModal(this.dataset.name)" style="flex: 1; background: none; border: 1px solid #E74C3C; color: #E74C3C; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#E74C3C'; this.style.color='white';" onmouseout="this.style.background='none'; this.style.color='#E74C3C';">
+                                        <i class="fas fa-trash"></i> Supprimer
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- User Card 2 -->
+                            <div class="user-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 244, 255, 0.95) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(232, 234, 237, 0.5); border-radius: 12px; padding: 20px; box-shadow: 0 8px 32px rgba(0, 102, 255, 0.08); transition: all 0.3s ease; animation: slideInUp 0.5s ease-out 0.1s backwards;">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #F39C12, #E67E22); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">C1</div>
+                                    <div style="flex: 1;">
+                                        <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: #1A1A1A;">Caissier 1</h4>
+                                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">caissier1@example.com</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                                    <span style="background: #FEF3C7; color: #D97706; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Caissier</span>
+                                    <span style="background: #E8F5E9; color: #27AE60; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Actif</span>
+                                </div>
+                                <p style="margin: 0 0 12px 0; font-size: 12px; color: #666;">
+                                    <i class="fas fa-cash-register" style="color: #F39C12; margin-right: 6px;"></i>
+                                    PDV / Facturation
+                                </p>
+                                <div style="display: flex; gap: 8px; padding-top: 12px; border-top: 1px solid #E8EAED;">
+                                    <button onclick="openEditUserModal('Caissier 1')" style="flex: 1; background: none; border: 1px solid #0066FF; color: #0066FF; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#0066FF'; this.style.color='white';" onmouseout="this.style.background='none'; this.style.color='#0066FF';">
+                                        <i class="fas fa-edit"></i> Éditer
+                                    </button>
+                                    <button onclick="openDeleteUserModal('Caissier 1')" style="flex: 1; background: none; border: 1px solid #E74C3C; color: #E74C3C; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#E74C3C'; this.style.color='white';" onmouseout="this.style.background='none'; this.style.color='#E74C3C';">
+                                        <i class="fas fa-trash"></i> Supprimer
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- User Card 3 -->
+                            <div class="user-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 244, 255, 0.95) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(232, 234, 237, 0.5); border-radius: 12px; padding: 20px; box-shadow: 0 8px 32px rgba(0, 102, 255, 0.08); transition: all 0.3s ease; animation: slideInUp 0.5s ease-out 0.2s backwards;">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #9B59B6, #8E44AD); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">GS</div>
+                                    <div style="flex: 1;">
+                                        <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: #1A1A1A;">Gestionnaire Stock</h4>
+                                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">stock@example.com</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                                    <span style="background: #F3E5F5; color: #9B59B6; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Gestionnaire</span>
+                                    <span style="background: #E8F5E9; color: #27AE60; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Actif</span>
+                                </div>
+                                <p style="margin: 0 0 12px 0; font-size: 12px; color: #666;">
+                                    <i class="fas fa-boxes" style="color: #9B59B6; margin-right: 6px;"></i>
+                                    Gestion des Stocks
+                                </p>
+                                <div style="display: flex; gap: 8px; padding-top: 12px; border-top: 1px solid #E8EAED;">
+                                    <button onclick="openEditUserModal('Gestionnaire Stock')" style="flex: 1; background: none; border: 1px solid #0066FF; color: #0066FF; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#0066FF'; this.style.color='white';" onmouseout="this.style.background='none'; this.style.color='#0066FF';">
+                                        <i class="fas fa-edit"></i> Éditer
+                                    </button>
+                                    <button onclick="openDeleteUserModal('Gestionnaire Stock')" style="flex: 1; background: none; border: 1px solid #E74C3C; color: #E74C3C; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#E74C3C'; this.style.color='white';" onmouseout="this.style.background='none'; this.style.color='#E74C3C';">
+                                        <i class="fas fa-trash"></i> Supprimer
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- User Card 4 -->
+                            <div class="user-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 244, 255, 0.95) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(232, 234, 237, 0.5); border-radius: 12px; padding: 20px; box-shadow: 0 8px 32px rgba(0, 102, 255, 0.08); transition: all 0.3s ease; animation: slideInUp 0.5s ease-out 0.3s backwards;">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #00897B, #00695C); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">CS</div>
+                                    <div style="flex: 1;">
+                                        <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: #1A1A1A;">Caissier + Stock</h4>
+                                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">caissier.stock@example.com</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                                    <span style="background: #E0F2F1; color: #00897B; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Multi-Rôle</span>
+                                    <span style="background: #E8F5E9; color: #27AE60; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">Actif</span>
+                                </div>
+                                <p style="margin: 0 0 12px 0; font-size: 12px; color: #666;">
+                                    <i class="fas fa-layer-group" style="color: #00897B; margin-right: 6px;"></i>
+                                    PDV + Stocks
+                                </p>
+                                <div style="display: flex; gap: 8px; padding-top: 12px; border-top: 1px solid #E8EAED;">
+                                    <button onclick="openEditUserModal('Caissier + Stock')" style="flex: 1; background: none; border: 1px solid #0066FF; color: #0066FF; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#0066FF'; this.style.color='white';" onmouseout="this.style.background='none'; this.style.color='#0066FF';">
+                                        <i class="fas fa-edit"></i> Éditer
+                                    </button>
+                                    <button onclick="openDeleteUserModal('Caissier + Stock')" style="flex: 1; background: none; border: 1px solid #E74C3C; color: #E74C3C; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#E74C3C'; this.style.color='white';" onmouseout="this.style.background='none'; this.style.color='#E74C3C';">
+                                        <i class="fas fa-trash"></i> Supprimer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Security Settings -->
@@ -505,8 +594,8 @@
         </main>
     </div>
 
-    <!-- Include User Modals -->
-    @include('settings.user-modals')
+    <!-- Include User Management Modals -->
+    @include('settings.user-management')
 
     <script>
         function showSection(sectionId) {
