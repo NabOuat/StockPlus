@@ -236,6 +236,9 @@
             <button class="btn btn-secondary" onclick="closeModal('viewModal')">
                 <i class="fas fa-times"></i> Fermer
             </button>
+            <button class="btn btn-secondary" onclick="openHistoryModal(document.getElementById('viewName').textContent)">
+                <i class="fas fa-history"></i> Historique
+            </button>
             <button class="btn btn-primary" onclick="openEditModal()">
                 <i class="fas fa-edit"></i> Modifier
             </button>
@@ -344,6 +347,11 @@
         closeModal('bulkActionsModal');
     }
 
+    function openHistoryModal(productName = 'Produit') {
+        document.getElementById('historyProductName').textContent = productName;
+        openModal('historyModal');
+    }
+
     // Close modal when clicking overlay
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
         overlay.addEventListener('click', function(e) {
@@ -386,3 +394,105 @@
         document.querySelector('[onclick*="bulkActionsModal"]')?.addEventListener('click', openBulkActionsModal);
     });
 </script>
+
+<!-- Product History Modal -->
+<div class="modal-overlay" id="historyModal">
+    <div class="modal history-modal" style="max-width: 700px;">
+        <div class="modal-header">
+            <h2 class="modal-title">
+                <i class="fas fa-history"></i>
+                Historique - <span id="historyProductName">Produit</span>
+            </h2>
+            <button class="modal-close" onclick="closeModal('historyModal')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- Timeline -->
+            <div style="position: relative; padding: 20px 0;">
+                <!-- Timeline Line -->
+                <div style="position: absolute; left: 19px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #0066FF 0%, #E8EAED 100%);"></div>
+
+                <!-- Event 1 -->
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; position: relative;">
+                    <div style="width: 40px; height: 40px; background: #E3F2FD; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0066FF; font-size: 16px; flex-shrink: 0; position: relative; z-index: 1;">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div style="flex: 1; padding-top: 4px;">
+                        <h4 style="margin: 0; font-size: 13px; font-weight: 600; color: #1A1A1A;">Produit créé</h4>
+                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">Par: Admin • 26 Nov 2025 à 10:30</p>
+                        <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;">Stock initial: 100 unités • Prix: €2.50</p>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; position: relative;">
+                    <div style="width: 40px; height: 40px; background: #FFF8E1; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #F39C12; font-size: 16px; flex-shrink: 0; position: relative; z-index: 1;">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div style="flex: 1; padding-top: 4px;">
+                        <h4 style="margin: 0; font-size: 13px; font-weight: 600; color: #1A1A1A;">Produit modifié</h4>
+                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">Par: Admin • 25 Nov 2025 à 14:15</p>
+                        <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;">Changements: Prix €2.50 → €2.75</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; position: relative;">
+                    <div style="width: 40px; height: 40px; background: #E8F5E9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #27AE60; font-size: 16px; flex-shrink: 0; position: relative; z-index: 1;">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div style="flex: 1; padding-top: 4px;">
+                        <h4 style="margin: 0; font-size: 13px; font-weight: 600; color: #1A1A1A;">Stock augmenté</h4>
+                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">Par: Caissier 1 • 24 Nov 2025 à 09:45</p>
+                        <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;">Stock: 100 → 150 unités (+50)</p>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; position: relative;">
+                    <div style="width: 40px; height: 40px; background: #FFE5E5; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #E74C3C; font-size: 16px; flex-shrink: 0; position: relative; z-index: 1;">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <div style="flex: 1; padding-top: 4px;">
+                        <h4 style="margin: 0; font-size: 13px; font-weight: 600; color: #1A1A1A;">Stock diminué</h4>
+                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">Par: Caissier 1 • 23 Nov 2025 à 16:20</p>
+                        <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;">Stock: 150 → 120 unités (-30) • Facture #SP20230045</p>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; position: relative;">
+                    <div style="width: 40px; height: 40px; background: #FFF8E1; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #F39C12; font-size: 16px; flex-shrink: 0; position: relative; z-index: 1;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div style="flex: 1; padding-top: 4px;">
+                        <h4 style="margin: 0; font-size: 13px; font-weight: 600; color: #1A1A1A;">Alerte stock faible</h4>
+                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">Système • 22 Nov 2025 à 08:00</p>
+                        <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;">Stock: 120 unités (Seuil: 50)</p>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div style="display: flex; gap: 16px; position: relative;">
+                    <div style="width: 40px; height: 40px; background: #E8F5E9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #27AE60; font-size: 16px; flex-shrink: 0; position: relative; z-index: 1;">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div style="flex: 1; padding-top: 4px;">
+                        <h4 style="margin: 0; font-size: 13px; font-weight: 600; color: #1A1A1A;">Stock réapprovisionné</h4>
+                        <p style="margin: 4px 0 0 0; font-size: 12px; color: #999;">Par: Admin • 20 Nov 2025 à 11:30</p>
+                        <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;">Stock: 120 → 200 unités (+80) • Bon de commande #BC20230012</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal('historyModal')">
+                <i class="fas fa-times"></i> Fermer
+            </button>
+            <button class="btn btn-secondary" style="background: #E3F2FD; color: #0066FF;">
+                <i class="fas fa-download"></i> Exporter
+            </button>
+        </div>
+    </div>
+</div>

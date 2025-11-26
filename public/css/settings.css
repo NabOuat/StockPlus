@@ -33,12 +33,14 @@
 
 /* Settings Sidebar */
 .settings-sidebar {
-    background: white;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 244, 255, 0.95) 100%);
     border: 1px solid #E8EAED;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 16px;
     height: fit-content;
     animation: slideInUp 0.8s ease-out 0.1s both;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
 
 .settings-menu {
@@ -86,11 +88,13 @@
 }
 
 .settings-section {
-    background: white;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 244, 255, 0.98) 100%);
     border: 1px solid #E8EAED;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 24px;
     margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
 
 .section-header {
@@ -335,16 +339,19 @@
 }
 
 .settings-card {
-    background: #F5F7FA;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 244, 255, 0.95) 100%);
     border: 1px solid #E8EAED;
-    border-radius: 6px;
-    padding: 16px;
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
 
 .settings-card:hover {
     border-color: #0066FF;
-    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.1);
+    box-shadow: 0 12px 24px rgba(0, 102, 255, 0.15);
+    transform: translateY(-4px);
 }
 
 .card-title {

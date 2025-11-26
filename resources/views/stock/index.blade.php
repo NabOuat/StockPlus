@@ -168,6 +168,9 @@
                     </div>
 
                     <div class="action-buttons">
+                        <button class="btn-secondary" onclick="openCategoriesModal()">
+                            <i class="fas fa-folder"></i> Gérer Catégories
+                        </button>
                         <button class="btn-secondary" onclick="openBulkActionsModal()">
                             <i class="fas fa-sliders-h"></i> Actions Groupées
                         </button>
@@ -424,6 +427,7 @@
 
     <!-- Include Modals -->
     @include('stock.modals')
+    @include('stock.category-management')
 
     <script>
         // Search functionality
