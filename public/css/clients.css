@@ -1,0 +1,401 @@
+/* Clients Management Interface - Modern & Animated */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Clients Management Container */
+.clients-management {
+    animation: slideInUp 0.8s ease-out;
+}
+
+/* Header Section */
+.clients-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    animation: slideInUp 0.8s ease-out 0.1s both;
+}
+
+.clients-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1A1A1A;
+}
+
+.clients-header p {
+    font-size: 14px;
+    color: #666666;
+    margin-top: 4px;
+}
+
+/* Controls Section */
+.clients-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+    animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+.search-box {
+    flex: 1;
+    position: relative;
+    min-width: 300px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 14px 10px 36px;
+    border: 1px solid #E8EAED;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: 'Instrument Sans', sans-serif;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #0066FF;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999999;
+    font-size: 14px;
+}
+
+/* Add Client Button */
+.btn-add-client {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Instrument Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-add-client:hover {
+    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Clients Section */
+.clients-section {
+    animation: slideInUp 0.8s ease-out 0.3s both;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    font-size: 12px;
+    color: #999999;
+    margin-bottom: 16px;
+}
+
+/* Clients Table */
+.clients-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E8EAED;
+}
+
+.clients-table thead {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(0, 82, 204, 0.05) 100%);
+    border-bottom: 1px solid #E8EAED;
+}
+
+.clients-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.clients-table tbody tr {
+    border-bottom: 1px solid #E8EAED;
+    transition: all 0.3s ease;
+}
+
+.clients-table tbody tr:hover {
+    background: #F8F9FA;
+}
+
+.clients-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.clients-table td {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #1A1A1A;
+}
+
+/* Client Avatar */
+.client-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.client-name-cell {
+    display: flex;
+    align-items: center;
+}
+
+.client-name {
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.client-email {
+    font-size: 12px;
+    color: #999999;
+}
+
+/* Contact Info */
+.contact-info {
+    font-size: 12px;
+    color: #666666;
+}
+
+/* Address */
+.address-info {
+    font-size: 12px;
+    color: #666666;
+    max-width: 200px;
+}
+
+/* Payment Terms */
+.payment-terms {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1A1A1A;
+    background: #F0F4FF;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.payment-terms.cod {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.payment-terms.reception {
+    background: #E0E7FF;
+    color: #4F46E5;
+}
+
+/* History Icon */
+.history-icon {
+    color: #0066FF;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.history-icon:hover {
+    transform: scale(1.2);
+    color: #0052CC;
+}
+
+/* Action Icons */
+.action-icons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: white;
+    border: 1px solid #E8EAED;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.icon-btn:hover {
+    background: #F0F4FF;
+    border-color: #0066FF;
+    color: #0066FF;
+}
+
+.icon-btn.delete:hover {
+    background: #FFE5E5;
+    border-color: #E74C3C;
+    color: #E74C3C;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 24px;
+    animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+.pagination-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #E8EAED;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666666;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+    border-color: #0066FF;
+    color: #0066FF;
+}
+
+.pagination-btn.active {
+    background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+    color: white;
+    border-color: #0066FF;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #E8EAED;
+}
+
+.empty-state i {
+    font-size: 48px;
+    color: #E8EAED;
+    margin-bottom: 16px;
+}
+
+.empty-state p {
+    font-size: 14px;
+    color: #999999;
+    margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .clients-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        min-width: 100%;
+    }
+
+    .clients-table {
+        font-size: 12px;
+    }
+
+    .clients-table td,
+    .clients-table th {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .clients-header h1 {
+        font-size: 22px;
+    }
+
+    .clients-controls {
+        flex-direction: column;
+    }
+
+    .clients-table {
+        font-size: 11px;
+    }
+
+    .clients-table th,
+    .clients-table td {
+        padding: 8px;
+    }
+
+    .address-info {
+        max-width: 150px;
+    }
+
+    .action-icons {
+        gap: 4px;
+    }
+
+    .icon-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+}
