@@ -15,7 +15,7 @@ services:
           name: stockplus
           property: host
       - key: APP_KEY
-        sync: false
+        value: base64:utVvVHGNc9RLyj4OdN8OUY+9tITXd6l3DYeg5IGyuBo=
       - key: DB_CONNECTION
         value: sqlite
       - key: CACHE_STORE

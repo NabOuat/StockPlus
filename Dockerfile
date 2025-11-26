@@ -33,6 +33,9 @@ RUN composer install --no-dev --optimize-autoloader
 # Install Node dependencies and build assets
 RUN npm install && npm run build
 
+# Create .env file from .env.example
+RUN cp .env.example .env
+
 # Generate Laravel key
 RUN php artisan key:generate
 
