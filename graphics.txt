@@ -1,0 +1,7 @@
+Rôle,Couleur,Code Hexadécimal,Connotation
+Primaire (Action/Confiance),Bleu Foncé Principal,#17539B (Similaire au bleu de navigation),"Professionnalisme, Confiance, Stabilité."
+Secondaire (Boutons/Focus),Bleu Vif Actif,#3291F8 (Bleu des boutons d'action),"Dynamisme, Efficacité, Action (CTA)."
+Accent (Alerte/Point de Repère),Orange Balise,#FF8C42 (Couleur du point lumineux du logo),"Alerte, Priorité, Innovation."
+Neutre (Fond/Texte),Gris Clair,#F8F8F8 (Fond des cartes),"Clarté, Lisibilité, Modernité."
+Texte Principal,Noir/Gris Foncé,#333333,"Lecture facile, Autorité."
+Couleur d'Alerte,Rouge Bas Stock,"#E74C3C (Couleur ""Bas"" sur le dashboard)","Danger, Stock Critique."
